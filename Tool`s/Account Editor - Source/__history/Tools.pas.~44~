@@ -1,0 +1,516 @@
+unit Tools;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI;
+
+type
+  TForm7 = class(TForm)
+    GroupBox1: TGroupBox;
+    Button1: TButton;
+    Label1: TLabel;
+    Button2: TButton;
+    Button3: TButton;
+    Button4: TButton;
+    Button5: TButton;
+    Button6: TButton;
+    Button7: TButton;
+    Button8: TButton;
+    Button9: TButton;
+    Label4: TLabel;
+    Button17: TButton;
+    Button21: TButton;
+    Button22: TButton;
+    Button23: TButton;
+    Button10: TButton;
+    Button11: TButton;
+    Button12: TButton;
+    Button13: TButton;
+    Button14: TButton;
+    Button15: TButton;
+    Button16: TButton;
+    Button18: TButton;
+    Button19: TButton;
+    Button20: TButton;
+    procedure Resetar(execute: Integer);
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button17Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button6Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure Button8Click(Sender: TObject);
+    procedure Button9Click(Sender: TObject);
+    procedure Button14Click(Sender: TObject);
+    procedure Button22Click(Sender: TObject);
+    procedure Button21Click(Sender: TObject);
+    procedure Button16Click(Sender: TObject);
+    procedure Button18Click(Sender: TObject);
+    procedure Button23Click(Sender: TObject);
+    procedure Button15Click(Sender: TObject);
+    procedure Button20Click(Sender: TObject);
+    procedure Button19Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure Button13Click(Sender: TObject);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+  private
+
+  public
+    { Public declarations }
+  end;
+
+var
+  Form7: TForm7;
+  TextErrorDriver : String = '[FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]';
+
+
+implementation
+
+uses Config,Language,LoadINI;
+
+{$R *.dfm}
+
+procedure TForm7.Button17Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(100);
+end;
+
+procedure TForm7.Button1Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(1);
+end;
+
+procedure TForm7.Button2Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(2);
+end;
+
+procedure TForm7.Button3Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(3);
+end;
+
+procedure TForm7.Button6Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(4);
+end;
+
+procedure TForm7.Button5Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(5);
+end;
+
+procedure TForm7.Button4Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(6);
+end;
+
+procedure TForm7.Button7Click(Sender: TObject);
+begin
+    if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(7);
+end;
+
+procedure TForm7.Button8Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(8);
+end;
+
+procedure TForm7.Button9Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(9);
+end;
+
+procedure TForm7.Button14Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(10);
+end;
+
+procedure TForm7.Button22Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(11);
+end;
+
+procedure TForm7.Button21Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(12);
+end;
+
+procedure TForm7.Button16Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(13);
+end;
+
+procedure TForm7.Button18Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(14);
+end;
+
+procedure TForm7.Button23Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(15);
+end;
+
+procedure TForm7.Button15Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(16);
+end;
+
+procedure TForm7.Button20Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(17);
+end;
+
+procedure TForm7.Button19Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(18);
+end;
+
+procedure TForm7.Button10Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(19);
+end;
+
+procedure TForm7.Button13Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(20);
+end;
+
+procedure TForm7.Button11Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(21);
+end;
+
+procedure TForm7.Button12Click(Sender: TObject);
+begin
+  if MessageBox(Handle, text15, text03, MB_ICONQUESTION or MB_YESNO) = ID_NO then Abort;
+  Resetar(22);
+end;
+
+procedure TForm7.FormCreate(Sender: TObject);
+begin
+  BorderStyle := bsNone;
+end;
+
+procedure TForm7.Resetar(execute: Integer);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Form3.Edit5.Text;
+  Cn.Params.Values['Server']  := Form3.Edit2.Text +','+ Form3.Edit1.Text;;
+  Cn.Params.UserName          := Form3.Edit3.Text;
+  Cn.Params.Password          := Form3.Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+     //ShowMessage(Form3.Edit5.Text);
+
+  try
+    Cn.Connected := True;
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                            := cn;
+
+      if (execute = 1) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE Character SET ResetCount=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 2) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE Character SET MasterResetCount=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 3) or (execute = 6) or (execute = 100) then
+      Begin
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=0) where Class = 0 or Class = 1 or Class = 2';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=16) where Class = 16 or Class = 17 or Class = 18';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=32) where Class = 32 or Class = 33 or Class = 34';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=48) where Class = 48 or Class = 49 or Class = 50';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=64) where Class = 64 or Class = 65 or Class = 66';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=80) where Class = 80 or Class = 81 or Class = 82';
+        Query.ExecSQL;
+
+        Query.SQL.Text  := 'Delete FROM MasterSkillTree';
+        Query.ExecSQL;
+
+        if INI_versao >= 3 then
+        begin
+          Query.SQL.Text  := 'Update Character SET MagicList = (SELECT MagicList FROM DefaultClassType WHERE Class=96) where Class = 96 or Class = 97 or Class = 98';
+          Query.ExecSQL;
+        end;
+      End;
+
+      if (execute = 4) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE Character SET cLevel=1, Experience=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 5) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE Character SET LevelUpPoint=0, Strength=32, Dexterity=32, Vitality=32, Energy=32, Leadership=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 6) or (execute = 100) then
+      Begin
+        Query.SQL.Text  := 'Update Character SET Class = 0, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=0) where Class = 0 or Class = 1 or Class = 2';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Class = 16, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=16) where Class = 16 or Class = 17 or Class = 18';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Class = 32, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=32) where Class = 32 or Class = 33 or Class = 34';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Class = 48, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=48) where Class = 48 or Class = 49 or Class = 50';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Class = 64, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=64) where Class = 64 or Class = 65 or Class = 66';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Class = 80, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=80) where Class = 80 or Class = 81 or Class = 82';
+        Query.ExecSQL;
+
+        Query.SQL.Text  := 'Delete FROM QuestKillCount';
+        Query.ExecSQL;
+
+        if INI_versao >= 3 then
+        begin
+          Query.SQL.Text  := 'Update Character SET Class = 96, Quest = (SELECT Quest FROM DefaultClassType WHERE Class=96) where Class = 96 or Class = 97 or Class = 98';
+          Query.ExecSQL;
+        end;
+      End;
+
+      if (execute = 7) or (execute = 100) then
+      Begin
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=0) where Class = 0 or Class = 1 or Class = 2';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=16) where Class = 16 or Class = 17 or Class = 18';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=32) where Class = 32 or Class = 33 or Class = 34';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=48) where Class = 48 or Class = 49 or Class = 50';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=64) where Class = 64 or Class = 65 or Class = 66';
+        Query.ExecSQL;
+        Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=80) where Class = 80 or Class = 81 or Class = 82';
+        Query.ExecSQL;
+
+        if INI_versao >= 3 then
+        begin
+          Query.SQL.Text  := 'Update Character SET Inventory = (SELECT Inventory FROM DefaultClassType WHERE Class=96) where Class = 96 or Class = 97 or Class = 98';
+          Query.ExecSQL;
+        end;
+
+        if INI_versao >= 2 then
+        Begin
+        Query.SQL.Text                              := 'Delete FROM CashShopPeriodicItem';
+        Query.ExecSQL;
+        End;
+
+      End;
+
+      if (execute = 8) or (execute = 22) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'DELETE FROM Warehouse';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'DELETE FROM ExtWarehouse';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 9) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE Character SET EffectList=(Select EffectList from DefaultClassType where class=0)';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 10) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'Update Warehouse SET Money=0';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Update ExtWarehouse SET Money=0';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Update Character SET Money=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 11) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE RankingDevilSquare SET Score=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 12) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE RankingBloodCastle SET Score=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 13) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE RankingIllusionTemple SET Score=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 14) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE RankingDuel SET WinScore=0,LoseScore=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 15) or (execute = 100) then
+      Begin
+        Query.SQL.Text                              := 'UPDATE RankingChaosCastle SET Score=0';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 16) or (execute = 22) or (execute = 100) then
+      Begin
+        if INI_versao >=2 then
+        Begin
+        Query.SQL.Text                              := 'Delete FROM CashShopData';
+        Query.ExecSQL;
+        End;
+      End;
+
+      if (execute = 17) or (execute = 21) or (execute = 22) or (execute = 100) then
+      Begin
+        if INI_versao >=2 then
+        Begin
+        Query.SQL.Text                              := 'Delete FROM CashShopInventory';
+        Query.ExecSQL;
+        End;
+      End;
+
+      if (execute = 18) or (execute = 21) or (execute = 22) or (execute = 100) then
+      Begin
+        if INI_versao >=3 then
+        Begin
+        Query.SQL.Text                              := 'Delete FROM MuunInventory';
+        Query.ExecSQL;
+        End;
+      End;
+
+      if (execute = 19) then
+      Begin
+        if INI_versao = 1 then
+        Begin
+        Query.SQL.Text                              := 'Update memb_info set Cash=0,Gold=0';
+        Query.ExecSQL;
+        End;
+      End;
+
+      if (execute = 20) or (execute = 21) or (execute = 22) then
+      Begin
+        Query.SQL.Text                              := 'Delete FROM GuildMember';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM Guild';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 21) or (execute = 22) then
+      Begin
+        if INI_versao >=2 then
+        Begin
+            Query.SQL.Text                          := 'Delete FROM Gens_Rank';
+            Query.ExecSQL;
+            Query.SQL.Text                          := 'Delete FROM HelperData';
+            Query.ExecSQL;
+            Query.SQL.Text                          := 'Delete FROM LuckyCoin';
+            Query.ExecSQL;
+            Query.SQL.Text                          := 'Delete FROM LuckyItem';
+            Query.ExecSQL;
+        End;
+
+        Query.SQL.Text                              := 'UPDATE GameServerInfo SET ItemCount=0';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM OptionData';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM EventLeoTheHelper';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM EventSantaClaus';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM MasterSkillTree';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM CashShopPeriodicItem';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM QuestKillCount';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM RankingBloodCastle';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM RankingDevilSquare';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM RankingChaosCastle';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM RankingDuel';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM RankingIllusionTemple';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM AccountCharacter';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM Character';
+        Query.ExecSQL;
+      End;
+
+      if (execute = 22)  then
+      Begin
+        Query.SQL.Text                              := 'Delete FROM MEMB_INFO';
+        Query.ExecSQL;
+        Query.SQL.Text                              := 'Delete FROM MEMB_STAT';
+        Query.ExecSQL;
+      End;
+
+            MessageBox(Handle, text14, text03, MB_ICONINFORMATION or MB_OK);
+
+    finally
+      Query.Free;
+    end;
+
+  except
+    on E: Exception do
+        MessageBox(Handle, PChar(Format(text02, [StringReplace(E.Message, TextErrorDriver, '', [rfReplaceAll, rfIgnoreCase])])), text04, MB_ICONERROR or MB_OK);
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+end;
+
+end.

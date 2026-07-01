@@ -1,0 +1,175 @@
+unit EditarContaDone;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI;
+
+type
+  TForm6 = class(TForm)
+    GroupBox2: TGroupBox;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label1: TLabel;
+    Button1: TButton;
+    Edit1: TEdit;
+    ComboBox1: TComboBox;
+    DateTimePicker1: TDateTimePicker;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    procedure Button1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form6: TForm6;
+  level : Integer = 0;
+  TextErrorDriver : String = '[FireDAC][Phys][ODBC][Microsoft][SQL Server Native Client 11.0][SQL Server]';
+
+
+implementation
+
+{$R *.dfm}
+
+uses Config, Language, EditarConta;
+
+procedure TForm6.Button1Click(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Form3.Edit5.Text;
+  Cn.Params.Values['Server']  := Form3.Edit2.Text;
+  Cn.Params.UserName          := Form3.Edit3.Text;
+  Cn.Params.Values['Port']    := Form3.Edit1.Text;
+  Cn.Params.Password          := Form3.Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+     //ShowMessage(Form3.Edit5.Text);
+
+  try
+    Cn.Connected := True;
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                            := cn;
+      Query.SQL.Text                              := 'UPDATE MEMB_INFO SET AccountLevel = :level, AccountExpireDate = :venci WHERE memb___id = :conta';
+      Query.Params.ParamByName('venci').Value     := Form6.DateTimePicker1.DateTime;
+      Query.Params.ParamByName('level').Value     := level;
+      Query.Params.ParamByName('conta').Value     := Form6.Edit1.Text;
+      Query.ExecSQL;
+
+        if Query.RowsAffected > 0 then begin
+            MessageBox(Handle, PChar(Format(text01, [Edit1.Text])), text03, MB_ICONINFORMATION or MB_OK);
+        end
+        else begin
+            MessageBox(Handle, text06, text04, MB_ICONERROR or MB_OK);
+        end;
+
+    finally
+      Query.Free;
+    end;
+
+  except
+    on E: Exception do
+        MessageBox(Handle, PChar(Format(text02, [StringReplace(E.Message, TextErrorDriver, '', [rfReplaceAll, rfIgnoreCase])])), 'teste', MB_ICONERROR or MB_OK);
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+end;
+
+procedure TForm6.Edit1Exit(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+  str   : String;
+  rr    : TArray<string>;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  //Cn.Params.Database          := Form3.Edit5.Text;
+  //Cn.Params.Values['Server']  := Form3.Edit2.Text;
+  //Cn.Params.UserName          := Form3.Edit3.Text;
+  //Cn.Params.Password          := Form3.Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+  try
+    Cn.Connected := True;
+
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                          := cn;
+      Query.SQL.Text                            := 'SELECT AccountLevel, AccountExpireDate FROM MEMB_INFO WHERE memb___id = :conta';
+      Query.Params.ParamByName('conta').Value   := Edit1.Text;
+      Query.Active                              := True;
+
+      if Query.Fields[0].AsString = '0' then begin
+        ComboBox1.Text := 'Free';
+      end
+      else
+      if Query.Fields[0].AsString = '1' then begin
+        ComboBox1.Text := 'Vip Level 1';
+      end
+      else
+      if Query.Fields[0].AsString = '2' then begin
+        ComboBox1.Text := 'Vip Level 2';
+      end
+      else
+      if Query.Fields[0].AsString = '3' then begin
+        ComboBox1.Text := 'Vip Level 3';
+      end;
+
+      str := Query.Fields[1].AsString;
+      rr  := str.split([' ']);
+
+      DateTimePicker1.Date := StrToDate(rr[0]);
+    finally
+      Query.Free;
+    end;
+  except
+    on E: Exception do
+
+      //Memo1.Lines.Add(Format(erpt, [TimeToStr(Now), E.Message]));
+
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+end;
+
+
+
+procedure TForm6.ComboBox1Change(Sender: TObject);
+begin
+  if ComboBox1.Text = 'Free' then begin
+    level := 0;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 1' then begin
+    level := 1;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 2' then begin
+    level := 2;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 3' then begin
+    level := 3;
+  end;
+end;
+
+end.

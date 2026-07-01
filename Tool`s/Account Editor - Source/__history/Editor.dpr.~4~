@@ -1,0 +1,19 @@
+program Editor;
+
+uses
+  Vcl.Forms,
+  Principal in 'Principal.pas' {Form1},
+  LoadINI in 'LoadINI.pas',
+  Language in 'Language.pas',
+  Sobre in 'Sobre.pas' {Form2};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.Title := 'Editor de VIP para MUEMU :: PerfectZone';
+  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TForm2, Form2);
+  Application.Run;
+end.

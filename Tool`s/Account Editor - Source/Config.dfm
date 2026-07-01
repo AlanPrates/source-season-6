@@ -1,0 +1,187 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  Caption = 'Configura'#231#245'es'
+  ClientHeight = 378
+  ClientWidth = 632
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Visible = True
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 9
+    Width = 633
+    Height = 364
+    Caption = ' :: CONFIGURAR SQL :: '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    object Label2: TLabel
+      Left = 207
+      Top = 79
+      Width = 46
+      Height = 16
+      Caption = '- Porta'
+    end
+    object Label3: TLabel
+      Left = 207
+      Top = 109
+      Width = 58
+      Height = 16
+      Caption = '- Usu'#225'rio'
+    end
+    object Label4: TLabel
+      Left = 207
+      Top = 139
+      Width = 50
+      Height = 16
+      Caption = '- Senha'
+    end
+    object Label5: TLabel
+      Left = 207
+      Top = 169
+      Width = 72
+      Height = 16
+      Caption = '- Database'
+    end
+    object Label1: TLabel
+      Left = 207
+      Top = 49
+      Width = 23
+      Height = 16
+      Caption = '- IP'
+    end
+    object Label6: TLabel
+      Left = 207
+      Top = 199
+      Width = 56
+      Height = 16
+      Caption = '- Vers'#227'o'
+    end
+    object Edit2: TEdit
+      Left = 285
+      Top = 46
+      Width = 141
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      Text = 'localhost'
+    end
+    object Edit3: TEdit
+      Left = 285
+      Top = 106
+      Width = 141
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+      Text = 'sa'
+    end
+    object Edit4: TEdit
+      Left = 285
+      Top = 136
+      Width = 141
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 2
+    end
+    object Button1: TButton
+      Left = 207
+      Top = 273
+      Width = 219
+      Height = 25
+      Caption = 'Salvar Configura'#231#245'es'
+      TabOrder = 3
+      OnClick = Button1Click
+    end
+    object Edit1: TEdit
+      Left = 285
+      Top = 76
+      Width = 141
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+      Text = '1433'
+    end
+    object Button2: TButton
+      Left = 207
+      Top = 236
+      Width = 219
+      Height = 25
+      Caption = 'Testar Conex'#227'o'
+      TabOrder = 5
+      OnClick = Button2Click
+    end
+    object ComboBox1: TComboBox
+      Left = 285
+      Top = 196
+      Width = 141
+      Height = 24
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+      Text = 'Season 4 (EX401)'
+      Items.Strings = (
+        'Season 4 (EX401)'
+        'Season 6 (EX603)'
+        'Season 8 (EX803)')
+    end
+  end
+  object Edit5: TEdit
+    Left = 285
+    Top = 175
+    Width = 141
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    Text = 'MuOnline'
+  end
+  object FDGUIxWaitCursor1: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 579
+    Top = 36
+  end
+end

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/04/24 19:47:58.000.940,=C:\Users\PSDEVS\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/04/24 19:48:11.000.886,C:\Users\PSDEVS\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\PSDEVS\Desktop\Vip Add For MueMu\Unit1.dfm</Transaction>
+    <Transaction>2017/04/24 19:48:11.000.886,C:\Users\PSDEVS\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\PSDEVS\Desktop\Vip Add For MueMu\Unit1.pas</Transaction>
+    <Transaction>2017/04/24 19:48:13.000.425,C:\Users\PSDEVS\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\PSDEVS\Desktop\Vip Add For MueMu\Project1.dproj</Transaction>
+    <Transaction>2017/04/24 20:49:15.000.011,C:\Users\PSDEVS\Desktop\Vip Add For MueMu\Project1.dproj=C:\Users\PSDEVS\Desktop\Vip Add For MueMu\Editor.dproj</Transaction>
+    <Transaction>2017/04/29 16:14:58.000.843,=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/29 16:18:31.000.300,I:\Sources\Programas\Editor de conta\LoadINI.pas=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/29 17:30:36.000.644,I:\Sources\Programas\Editor de conta\Principal.pas=I:\Sources\Programas\Editor de conta\Unit1.pas</Transaction>
+    <Transaction>2017/04/29 17:30:36.000.644,I:\Sources\Programas\Editor de conta\Principal.dfm=I:\Sources\Programas\Editor de conta\Unit1.dfm</Transaction>
+    <Transaction>2017/04/29 17:48:07.000.717,=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/29 17:50:52.000.944,I:\Sources\Programas\Editor de conta\Language.pas=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/30 11:06:19.000.048,=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/30 11:08:28.000.431,I:\Sources\Programas\Editor de conta\Sobre.pas=I:\Sources\Programas\Editor de conta\Unit2.pas</Transaction>
+    <Transaction>2017/04/30 11:08:28.000.431,I:\Sources\Programas\Editor de conta\Sobre.dfm=I:\Sources\Programas\Editor de conta\Unit2.dfm</Transaction>
+    <Transaction>2017/04/30 11:41:12.000.568,=I:\Sources\Programas\Editor de conta\Unit3.pas</Transaction>
+    <Transaction>2017/04/30 11:42:38.000.034,I:\Sources\Programas\Editor de conta\Config.dfm=I:\Sources\Programas\Editor de conta\Unit3.dfm</Transaction>
+    <Transaction>2017/04/30 11:42:38.000.034,I:\Sources\Programas\Editor de conta\Config.pas=I:\Sources\Programas\Editor de conta\Unit3.pas</Transaction>
+    <Transaction>2017/04/30 22:42:08.000.243,=I:\Sources\Programas\Editor de conta\Unit4.pas</Transaction>
+    <Transaction>2017/04/30 22:43:08.000.978,I:\Sources\Programas\Editor de conta\Unit4.pas=I:\Sources\Programas\Editor de conta\CriarConta.pas</Transaction>
+    <Transaction>2017/04/30 22:43:08.000.978,I:\Sources\Programas\Editor de conta\Unit4.dfm=I:\Sources\Programas\Editor de conta\CriarConta.dfm</Transaction>
+    <Transaction>2017/04/30 22:51:17.000.324,=I:\Sources\Programas\Editor de conta\Unit5.pas</Transaction>
+    <Transaction>2017/04/30 22:51:52.000.295,I:\Sources\Programas\Editor de conta\Unit5.dfm=I:\Sources\Programas\Editor de conta\EditarConta.dfm</Transaction>
+    <Transaction>2017/04/30 22:51:52.000.295,I:\Sources\Programas\Editor de conta\Unit5.pas=I:\Sources\Programas\Editor de conta\EditarConta.pas</Transaction>
+    <Transaction>2017/04/30 22:52:11.000.930,=I:\Sources\Programas\Editor de conta\Unit6.pas</Transaction>
+    <Transaction>2017/04/30 22:52:49.000.807,I:\Sources\Programas\Editor de conta\Unit6.pas=I:\Sources\Programas\Editor de conta\EditarContaDone.pas</Transaction>
+    <Transaction>2017/04/30 22:52:49.000.807,I:\Sources\Programas\Editor de conta\Unit6.dfm=I:\Sources\Programas\Editor de conta\EditarContaDone.dfm</Transaction>
+    <Transaction>2017/05/06 07:29:36.000.306,=I:\Sources\Programas\Editor de conta\Unit7.pas</Transaction>
+    <Transaction>2017/05/06 07:30:22.000.442,I:\Sources\Programas\Editor de conta\Unit7.dfm=I:\Sources\Programas\Editor de conta\Tools.dfm</Transaction>
+    <Transaction>2017/05/06 07:30:22.000.442,I:\Sources\Programas\Editor de conta\Unit7.pas=I:\Sources\Programas\Editor de conta\Tools.pas</Transaction>
+  </Transactions>
+</BorlandProject>

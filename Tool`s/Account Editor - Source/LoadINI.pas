@@ -1,0 +1,76 @@
+unit LoadINI;
+
+interface
+
+uses inifiles,Classes,System.SysUtils,Forms,Windows,Dialogs,Language;
+
+Procedure INICreate(Path: string; Secao: string);
+Procedure INILoad();
+
+var
+   INI_Path : String;
+   INI_Secao : String;
+   INI_database: String;
+   INI_servidor: String;
+   INI_porta: String;
+   INI_usuario: String;
+   INI_senha: String;
+   INI_versao: Integer=1;
+
+implementation
+
+{ TLoadIni }
+
+// Método construtor recebe o caminho do INI e nome da Seção para Leitura
+Procedure INICreate(Path: string; Secao: string);
+begin
+    if FileExists(Path) then
+    begin
+       INI_Path := Path;
+       INI_Secao := Secao;
+       INILoad();
+    end
+    else
+      begin
+       Application.MessageBox(text05, text04, mb_iconerror + mb_ok);
+       Application.Terminate;
+      end;
+
+end;
+
+procedure INILoad();
+var
+IniFile:TIniFile;
+versao:Integer;
+begin
+    IniFile   := TIniFile.Create(ExtractFilePath(INI_Path) + 'config.ini');
+    try
+    INI_database  := IniFile.ReadString(INI_Secao,'Database','');
+    INI_servidor  := IniFile.ReadString(INI_Secao,'Server','');
+    INI_porta     := IniFile.ReadString(INI_Secao,'Port','');
+    INI_usuario   := IniFile.ReadString(INI_Secao,'User','');
+    INI_senha     := IniFile.ReadString(INI_Secao,'Password','');
+
+    versao     := IniFile.ReadInteger(INI_Secao,'Version',1);
+
+    if versao=2 then
+      begin
+          INI_versao := 2;
+      end
+      else
+    if versao=3 then
+      begin
+          INI_versao := 3;
+      end
+    else
+        begin
+          INI_versao := 1;
+        end;
+
+     Except
+        on E:Exception do
+        ShowMessage('Erro ao carregar parâmetros de conexão!'#13#10 + E.Message);
+     end;
+end;
+
+end.

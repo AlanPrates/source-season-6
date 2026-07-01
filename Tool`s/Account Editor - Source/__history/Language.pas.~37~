@@ -1,0 +1,167 @@
+unit Language;
+
+interface
+
+uses System.SysUtils,Forms,Windows,Dialogs;
+
+Procedure Load(Lang: string);
+
+var
+    text01 : String;
+    text02 : String;
+    text03 : PChar;
+    text04 : PChar;
+    text05 : PChar;
+    text06 : PChar;
+    text07 : PChar;
+    text08 : PChar;
+    text09 : PChar;
+    text10 : PChar;
+    text11 : PChar;
+    text12 : PChar;
+    text13 : PChar;
+    text14 : PChar;
+    text15 : PChar;
+
+    labeltext01 : String;
+    labeltext02 : String;
+    labeltext03 : String;
+    labeltext04 : String;
+    labeltext05 : String;
+    labeltext06 : String;
+    labeltext07 : String;
+    labeltext08 : String;
+    labeltext09 : String;
+    labeltext10 : String;
+    labeltext11 : String;
+    labeltext12 : String;
+    labeltext13 : String;
+    labeltext14 : String;
+    labeltext15 : String;
+    labeltext16 : String;
+    labeltext17 : String;
+    labeltext18 : String;
+    labeltext19 : String;
+    labeltext20 : String;
+    labeltext21 : String;
+    labeltext22 : String;
+    labeltext23 : String;
+    labeltext24 : String;
+    labeltext25 : String;
+    labeltext26 : String;
+    labeltext27 : String;
+    labeltext28 : String;
+    labeltext29 : String;
+    labeltext30 : String;
+    labeltext31 : String;
+
+implementation
+
+Procedure Load(Lang: string);
+begin 
+    if Lang = 'PT' then begin
+        text01 := 'Conta %s editada com sucesso!';
+        text02 := 'ERRO: %s';
+        text03 := 'Confirmação';
+        text04 := 'Erro';
+        text05 := 'Config.ini não localizado!';
+        text06 := 'Não foi possível editar!';
+        text07 := 'Conexão realizada com sucesso!';
+        text08 := 'Conexão não realizada!';
+        text09 := 'Salvo com sucesso!';
+        text10 := 'Essa conta não existe!';
+        text11 := 'Essa conta já existe!';
+        text12 := 'Conta criada com sucesso!';
+        text13 := 'Campos em branco!';
+        text14 := 'Comando Executado com sucesso!';
+        text15 := 'Tem certeza que deseja continuar?';
+
+        labeltext01 := 'Editor de conta para MUEMU :: PerfectZone';
+        labeltext02 := ' :: Adicionar VIP :: ';
+        labeltext03 := ' :: Configuração SQL :: ';
+        labeltext04 := '- Conta:';
+        labeltext05 := '- Tipo Vip:';
+        labeltext06 := '- Vencimento:';
+        labeltext07 := 'Salvar';
+        labeltext08 := '- Usuário:';
+        labeltext09 := '- Senha:';
+        labeltext10 := '- Porta:';
+        labeltext11 := 'Idioma: ';
+        labeltext12 := ':: CRIAR CONTA ::';
+        labeltext13 := ':: EDITAR CONTA ::';
+        labeltext14 := ':: CONFIGURAÇÕES ::';
+        labeltext15 := ':: SOBRE O SISTEMA ::';
+        labeltext16 := 'Criar Conta';
+        labeltext17 := 'Editar Conta';
+        labeltext18 := 'Configurações';
+        labeltext19 := 'Sobre o Sistema';
+        labeltext20 := 'Criar conta';
+        labeltext21 := 'Editar conta';
+        labeltext22 := 'Testar conexão';
+        labeltext23 := 'Salvar Configurações';
+        labeltext24 := '- Nome:';
+        labeltext25 := '- E-Mail:';
+        labeltext26 := '- Criada:';
+        labeltext27 := '- Bloquear conta:';
+        labeltext28 := 'Voltar';
+        labeltext29 := '';
+        labeltext30 := '';
+        labeltext31 := '';
+    end
+    else begin
+        text01 := 'Account %s updated successfully!';
+        text02 := 'ERROR: %s';
+        text03 := 'Confirmation';
+        text04 := 'Error';
+        text05 := 'Config.ini not found!';
+        text06 := 'Update not successful!';
+        text07 := 'Successfully connected!';
+        text08 := 'Connection Error!';
+        text09 := 'Updated successfully!';
+        text10 := 'Account not found!';
+        text11 := 'This account already exists!';
+        text12 := 'Account created!';
+        text13 := 'Complete all fields!';
+        text14 := 'Comando Executado com sucesso!';
+        text15 := 'Tem certeza que deseja continuar!';
+
+        labeltext01 := 'Account Editor for MUEMU :: PerfectZone';
+        labeltext02 := ' :: Add VIP :: ';
+        labeltext03 := ' :: SQL Configuration :: ';
+        labeltext04 := '- Account:';
+        labeltext05 := '- Vip Type:';
+        labeltext06 := '- Vip expire:';
+        labeltext07 := 'Update';
+        labeltext08 := '- User:';
+        labeltext09 := '- Pass:';
+        labeltext10 := '- Port:';
+        labeltext11 := 'Language: ';
+        labeltext12 := ':: CREATE ACCOUNT ::';
+        labeltext13 := ':: EDIT ACCOUNT ::';
+        labeltext14 := ':: SETTINGS ::';
+        labeltext15 := ':: ABOUT ::';
+        labeltext16 := 'Create Account';
+        labeltext17 := 'Edit Account';
+        labeltext18 := 'Settings';
+        labeltext19 := 'About';
+        labeltext20 := 'Create account';
+        labeltext21 := 'Edit account';
+        labeltext22 := 'Try connect';
+        labeltext23 := 'Save changes';
+        labeltext24 := '- Name:';
+        labeltext25 := '- Mail:';
+        labeltext26 := '- Created:';
+        labeltext27 := '- Bloc account:';
+        labeltext28 := 'Back';
+        labeltext29 := '';
+        labeltext30 := '';
+        labeltext31 := '';
+
+    end;
+
+end;
+
+
+end.
+
+

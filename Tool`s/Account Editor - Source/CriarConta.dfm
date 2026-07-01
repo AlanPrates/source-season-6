@@ -1,0 +1,103 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Criar Conta'
+  ClientHeight = 378
+  ClientWidth = 632
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  OldCreateOrder = False
+  Visible = True
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 0
+    Top = 9
+    Width = 633
+    Height = 361
+    Caption = ':: CRIAR CONTA ::'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 175
+      Top = 72
+      Width = 57
+      Height = 16
+      Caption = '- Conta: '
+    end
+    object Label2: TLabel
+      Left = 175
+      Top = 104
+      Width = 59
+      Height = 16
+      Caption = '- Senha: '
+    end
+    object Label3: TLabel
+      Left = 175
+      Top = 136
+      Width = 54
+      Height = 16
+      Caption = '- Nome: '
+    end
+    object Label4: TLabel
+      Left = 175
+      Top = 168
+      Width = 57
+      Height = 16
+      Caption = '- E-Mail: '
+    end
+    object Edit1: TEdit
+      Left = 257
+      Top = 69
+      Width = 121
+      Height = 24
+      MaxLength = 10
+      TabOrder = 0
+    end
+    object Edit2: TEdit
+      Left = 257
+      Top = 101
+      Width = 121
+      Height = 24
+      MaxLength = 10
+      TabOrder = 1
+    end
+    object Edit3: TEdit
+      Left = 257
+      Top = 133
+      Width = 264
+      Height = 24
+      MaxLength = 10
+      TabOrder = 2
+    end
+    object Edit4: TEdit
+      Left = 257
+      Top = 165
+      Width = 264
+      Height = 24
+      MaxLength = 50
+      TabOrder = 3
+    end
+    object Button1: TButton
+      Left = 208
+      Top = 216
+      Width = 201
+      Height = 25
+      Caption = 'Criar Conta'
+      TabOrder = 4
+      OnClick = Button1Click
+    end
+  end
+end

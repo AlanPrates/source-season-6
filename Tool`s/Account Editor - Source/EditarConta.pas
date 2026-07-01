@@ -1,0 +1,139 @@
+unit EditarConta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI,inifiles;
+
+type
+  TForm5 = class(TForm)
+    GroupBox1: TGroupBox;
+    Edit1: TEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Edit1KeyPress(Sender: TObject; var Key: Char);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form5: TForm5;
+
+implementation
+
+uses Config,EditarContaDone,Language;
+{$R *.dfm}
+
+procedure TForm5.Button1Click(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+  str   : String;
+  accountlevel: integer;
+  rr    : TArray<string>;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Form3.Edit5.Text;
+  Cn.Params.Values['Server']  := Form3.Edit2.Text +','+ Form3.Edit1.Text;;
+  Cn.Params.UserName          := Form3.Edit3.Text;
+  Cn.Params.Password          := Form3.Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+  try
+    Cn.Connected := True;
+
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                          := cn;
+      Query.SQL.Text                            := 'SELECT top 1 accountlevel,accountexpiredate,memb___id,appl_days, bloc_code, memb__pwd, mail_addr, memb_name FROM MEMB_INFO WHERE memb___id = :conta';
+      Query.Params.ParamByName('conta').Value   := Edit1.Text;
+      Query.Active                              := True;
+
+        if Query.RowsAffected > 0 then begin
+          if Query.Fields[0].AsString = '0' then begin
+            Form6.ComboBox1.Text := 'Free';
+          end
+          else
+          if Query.Fields[0].AsString = '1' then begin
+            Form6.ComboBox1.Text := 'Vip Level 1';
+          end
+          else
+          if Query.Fields[0].AsString = '2' then begin
+            Form6.ComboBox1.Text := 'Vip Level 2';
+          end
+          else
+          if Query.Fields[0].AsString = '3' then begin
+            Form6.ComboBox1.Text := 'Vip Level 3';
+          end;
+
+            Form6.Edit1.text := Query.Fields[2].AsString;
+
+            str := Query.Fields[1].AsString;
+            rr  := str.split([' ']);
+
+            Form6.DateTimePicker1.Date := StrToDate(rr[0]);
+
+            if Query.Fields[3].isNull = false then
+            begin
+              str := Query.Fields[3].AsString;
+              rr  := str.split([' ']);
+              Form6.Label9.Caption := rr[0];
+            end;
+
+          if Query.Fields[4].AsString = '1' then begin
+            Form6.ComboBox2.Text := 'SIM';
+          end
+          else begin
+            Form6.ComboBox2.Text := 'NÃO';
+          end;
+
+            Form6.Edit2.text := Query.Fields[5].AsString;
+            Form6.Edit4.text := Query.Fields[6].AsString;
+            Form6.Edit3.text := Query.Fields[7].AsString;
+
+            Form6.Show;
+
+        end
+        else begin
+            MessageBox(Handle, text10, text04, MB_ICONERROR or MB_OK);
+        end;
+
+
+    finally
+      Query.Free;
+    end;
+  except
+    on E: Exception do
+        MessageBox(Handle, PChar(Format(text02, [StringReplace(E.Message, TextErrorDriver, '', [rfReplaceAll, rfIgnoreCase])])), text04, MB_ICONERROR or MB_OK);
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+
+end;
+
+procedure TForm5.Edit1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+   Button1Click(Sender);
+  end;
+end;
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  BorderStyle := bsNone;
+end;
+
+end.

@@ -1,0 +1,254 @@
+unit Unit1;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI, Vcl.StdCtrls,
+  Vcl.ComCtrls;
+
+type
+  TForm1 = class(TForm)
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    GroupBox1: TGroupBox;
+    Edit2: TEdit;
+    Label2: TLabel;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Edit4: TEdit;
+    Label4: TLabel;
+    Edit5: TEdit;
+    Label5: TLabel;
+    GroupBox2: TGroupBox;
+    Button1: TButton;
+    DateTimePicker1: TDateTimePicker;
+    Label6: TLabel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Memo1: TMemo;
+    Label7: TLabel;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    Label8: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure Edit1Exit(Sender: TObject);
+    procedure ComboBox2Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1 : TForm1;
+  level : Integer = 0;
+
+  cspt : String = '[%s] Conectado ao SQL';
+  dspt : String = '[%s] Desconectado ao SQL';
+
+  cept : String = '[%s] Conta %s editada';
+  erpt : String = '[%s] ERRO: %s';
+
+  Text01PT : String = 'Conta %s editada com sucesso!';
+  Text02PT : String = 'ERRO: %s';
+
+  Text01EN : String = 'Account %s updated successfully!';
+  Text02EN : String = 'ERROR: %s';
+
+  csen : String = '[%s] Connected to SQL';
+  dsen : String = '[%s] Disconnected from SQL';
+
+  ceen : String = '[%s] Account %s edited';
+  eren : String = '[%s] ERROR: %s';
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Edit5.Text;
+  Cn.Params.Values['Server']  := Edit2.Text;
+  Cn.Params.UserName          := Edit3.Text;
+  Cn.Params.Password          := Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+  try
+    Cn.Connected := True;
+
+    if Cn.Connected then begin
+      if ComboBox2.Text = 'PT' then begin
+        Memo1.Lines.Add(Format(cspt, [TimeToStr(Now)]));
+      end
+      else
+      if ComboBox2.Text = 'ENG' then begin
+        Memo1.Lines.Add(Format(csen, [TimeToStr(Now)]));
+      end;
+    end;
+
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                            := cn;
+      Query.SQL.Text                              := 'UPDATE MEMB_INFO SET AccountLevel = :level, AccountExpireDate = :venci WHERE memb___id = :conta';
+      Query.Params.ParamByName('venci').Value     := DateTimePicker1.DateTime;
+      Query.Params.ParamByName('level').Value     := level;
+      Query.Params.ParamByName('conta').Value     := Edit1.Text;
+      Query.ExecSQL;
+    finally
+      Query.Free;
+
+      if ComboBox2.Text = 'PT' then begin
+        MessageBox(Handle, PChar(Format('Conta %s editada com sucesso!', [Edit1.Text])), 'Confirmação', MB_ICONINFORMATION or MB_OK)
+      end
+      else
+      if ComboBox2.Text = 'ENG' then begin
+        Memo1.Lines.Add(Format(ceen, [TimeToStr(Now), Edit1.Text]));
+      end;
+    end;
+  except
+    on E: Exception do
+
+    if ComboBox2.Text = 'PT' then begin
+      Memo1.Lines.Add(Format(erpt, [TimeToStr(Now), E.Message]));
+    end
+    else
+    if ComboBox2.Text = 'ENG' then begin
+      Memo1.Lines.Add(Format(eren, [TimeToStr(Now), E.Message]));
+    end;
+  end;
+
+  Cn.Connected := False;
+  if ComboBox2.Text = 'PT' then begin
+    Memo1.Lines.Add(Format(dspt, [TimeToStr(Now)]));
+  end
+  else
+  if ComboBox2.Text = 'ENG' then begin
+    Memo1.Lines.Add(Format(dsen, [TimeToStr(Now)]));
+  end;
+  Cn.Free;
+end;
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+begin
+  if ComboBox1.Text = 'Free' then begin
+    level := 0;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 1' then begin
+    level := 1;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 2' then begin
+    level := 2;
+  end
+  else
+  if ComboBox1.Text = 'Vip Level 3' then begin
+    level := 3;
+  end;
+end;
+
+procedure TForm1.ComboBox2Change(Sender: TObject);
+begin
+  if ComboBox2.Text = 'ENG' then begin
+    Form1.Caption := 'VIP Editor for MUEMU :: PerfectZone';
+    GroupBox2.Caption := ' :: Add VIP :: ';
+    GroupBox1.Caption := ' :: SQL Connection :: ';
+    Label1.Caption := '- Account:';
+    Label7.Caption := '- Vip Type:';
+    Label6.Caption := '- Vip expire:';
+    Button1.Caption := 'Edit VIP';
+    Label3.Caption := '- User:';
+    Label4.Caption := '- Password:';
+  end
+  else
+  if ComboBox2.Text = 'PT' then begin
+    Form1.Caption := 'Editor de VIP para MUEMU :: PerfectZone';
+    GroupBox2.Caption := ' :: Adicionar VIP :: ';
+    GroupBox1.Caption := ' :: Conexão SQL :: ';
+    Label1.Caption := '- Conta:';
+    Label7.Caption := '- Tipo Vip:';
+    Label6.Caption := '- Vencimento Vip:';
+    Button1.Caption := 'Editar VIP';
+    Label3.Caption := '- Usuário:';
+    Label4.Caption := '- Senha:';
+  end;
+end;
+
+procedure TForm1.Edit1Exit(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+
+  str   : String;
+  rr    : TArray<string>;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Edit5.Text;
+  Cn.Params.Values['Server']  := Edit2.Text;
+  Cn.Params.UserName          := Edit3.Text;
+  Cn.Params.Password          := Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+  try
+    Cn.Connected := True;
+
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                          := cn;
+      Query.SQL.Text                            := 'SELECT AccountLevel, AccountExpireDate FROM MEMB_INFO WHERE memb___id = :conta';
+      Query.Params.ParamByName('conta').Value   := Edit1.Text;
+      Query.Active                              := True;
+
+      if Query.Fields[0].AsString = '0' then begin
+        ComboBox1.Text := 'Free';
+      end
+      else
+      if Query.Fields[0].AsString = '1' then begin
+        ComboBox1.Text := 'Vip Level 1';
+      end
+      else
+      if Query.Fields[0].AsString = '2' then begin
+        ComboBox1.Text := 'Vip Level 2';
+      end
+      else
+      if Query.Fields[0].AsString = '3' then begin
+        ComboBox1.Text := 'Vip Level 3';
+      end;
+
+      str := Query.Fields[1].AsString;
+      rr  := str.split([' ']);
+
+      DateTimePicker1.Date := StrToDate(rr[0]);
+    finally
+      Query.Free;
+    end;
+  except
+    on E: Exception do
+    if ComboBox2.Text = 'PT' then begin
+      Memo1.Lines.Add(Format(erpt, [TimeToStr(Now), E.Message]));
+    end
+    else
+    if ComboBox2.Text = 'ENG' then begin
+      Memo1.Lines.Add(Format(eren, [TimeToStr(Now), E.Message]));
+    end;
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+end;
+
+end.

@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{77A12479-FD12-469E-93F4-9009975A3B9B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TitanEditor</RootNamespace>
+    <AssemblyName>TitanEditor</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>TitanEditor.ico</ApplicationIcon>
+    <StartupObject>TitanEditor.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Account.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Account.Designer.cs">
+      <DependentUpon>Account.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ExtraAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\ExtraAcc.Designer.cs">
+      <DependentUpon>ExtraAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\VIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\VIP.Designer.cs">
+      <DependentUpon>VIP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Warehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Account\Warehouse.Designer.cs">
+      <DependentUpon>Warehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Character\Add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Character\Add.Designer.cs">
+      <DependentUpon>Add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Character\Edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Character\Edit.Designer.cs">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Character\Item.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Character\Item.Designer.cs">
+      <DependentUpon>Item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Character\SkillsEdition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Character\SkillsEdition.Designer.cs">
+      <DependentUpon>SkillsEdition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CharPanel.Designer.cs">
+      <DependentUpon>CharPanel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="DBLite.cs" />
+    <Compile Include="DrawingUnit.cs" />
+    <Compile Include="EquipCustomSet.cs" />
+    <Compile Include="EquipEditor.Designer.cs">
+      <DependentUpon>EquipEditor.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="EquipImageCache.cs" />
+    <Compile Include="EquipItem.cs" />
+    <Compile Include="EquipItemType.cs" />
+    <Compile Include="EquipPanel.Designer.cs">
+      <DependentUpon>EquipPanel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="EquipProperty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EquipProperty.Designer.cs">
+      <DependentUpon>EquipProperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extra.cs" />
+    <Compile Include="Find.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Find.Designer.cs">
+      <DependentUpon>Find.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_reset_server.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_reset_server.Designer.cs">
+      <DependentUpon>frm_reset_server.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ini.cs" />
+    <Compile Include="Items\Serial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\Serial.Designer.cs">
+      <DependentUpon>Serial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Premium\frm_castle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Premium\frm_castle.Designer.cs">
+      <DependentUpon>frm_castle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Premium\Item_default.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Premium\Item_default.Designer.cs">
+      <DependentUpon>Item_default.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Premium\select_default_class.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Premium\select_default_class.Designer.cs">
+      <DependentUpon>select_default_class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reward.Designer.cs">
+      <DependentUpon>Reward.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Splash.Designer.cs">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="verificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="verificar.Designer.cs">
+      <DependentUpon>verificar.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Account\Account.resx">
+      <DependentUpon>Account.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\ExtraAcc.resx">
+      <DependentUpon>ExtraAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\VIP.resx">
+      <DependentUpon>VIP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Account\Warehouse.resx">
+      <DependentUpon>Warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Character\Add.resx">
+      <DependentUpon>Add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Character\Edit.resx">
+      <DependentUpon>Edit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Character\Item.resx">
+      <DependentUpon>Item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Character\SkillsEdition.resx">
+      <DependentUpon>SkillsEdition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CharPanel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CharPanel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipEditor.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EquipEditor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipPanel.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EquipPanel.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EquipProperty.resx">
+      <DependentUpon>EquipProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Find.resx">
+      <DependentUpon>Find.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_reset_server.resx">
+      <DependentUpon>frm_reset_server.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Serial.resx">
+      <DependentUpon>Serial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Premium\frm_castle.resx">
+      <DependentUpon>frm_castle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Premium\Item_default.resx">
+      <DependentUpon>Item_default.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Premium\select_default_class.resx">
+      <DependentUpon>select_default_class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reward.resx">
+      <DependentUpon>Reward.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <DependentUpon>Splash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="verificar.resx">
+      <DependentUpon>verificar.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

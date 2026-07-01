@@ -1,0 +1,137 @@
+unit Config;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI,inifiles;
+
+type
+  TForm3 = class(TForm)
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Edit5: TEdit;
+    Edit4: TEdit;
+    GroupBox1: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Button1: TButton;
+    Edit1: TEdit;
+    Label1: TLabel;
+    Button2: TButton;
+    FDGUIxWaitCursor1: TFDGUIxWaitCursor;
+    ComboBox1: TComboBox;
+    Label6: TLabel;
+    procedure FormCreate(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+uses LoadINI, Language;
+
+{$R *.dfm}
+
+procedure TForm3.Button1Click(Sender: TObject);
+var
+    ArqIni : TIniFile;
+    versaow : Integer;
+begin
+     ArqIni := TIniFile.Create(INI_Path);
+
+     if ComboBox1.Text = 'Season 4 (EX401)' then begin
+        versaow := 1;
+        INI_versao := 1;
+      end
+      else
+      if ComboBox1.Text = 'Season 6 (EX603)' then begin
+        versaow := 2;
+        INI_versao := 2;
+      end
+      else begin
+        versaow := 3;
+        INI_versao := 3;
+      end;
+
+     try
+        ArqIni.WriteString(INI_Secao, 'User', Edit3.Text);
+        ArqIni.WriteString(INI_Secao, 'Password', Edit4.Text);
+        ArqIni.WriteString(INI_Secao, 'Database', Edit5.Text);
+        ArqIni.WriteString(INI_Secao, 'Server', Edit2.Text);
+        ArqIni.WriteString(INI_Secao, 'Port', Edit1.Text);
+        ArqIni.WriteInteger(INI_Secao, 'Version', versaow);
+
+        MessageBox(Handle, text09, text03, MB_ICONINFORMATION or MB_OK);
+     finally
+         ArqIni.Free;
+     end;
+end;
+
+procedure TForm3.Button2Click(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Edit5.Text;
+  Cn.Params.Values['Server']  := Edit2.Text +','+ Edit1.Text;
+  Cn.Params.UserName          := Edit3.Text;
+  Cn.Params.Password          := Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+     //ShowMessage(Form3.Edit5.Text);
+
+  try
+    Cn.Connected := True;
+    Query := TFDQuery.Create(cn);
+
+    MessageBox(Handle, text07, text03, MB_ICONINFORMATION or MB_OK);
+
+  except
+    on E: Exception do
+        MessageBox(Handle, text08, text04, MB_ICONERROR or MB_OK);
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+end;
+
+procedure TForm3.FormCreate(Sender: TObject);
+begin
+        Edit1.text := INI_porta;
+        Edit2.text := INI_servidor;
+        Edit3.text := INI_usuario;
+        Edit4.text := INI_senha;
+        Edit5.text := INI_database;
+
+      if INI_versao = 1 then begin
+          ComboBox1.ItemIndex := Integer(ComboBox1.Items.IndexOf('Season 4 (EX401)'));
+      end
+      else
+      if INI_versao = 2 then begin
+          ComboBox1.ItemIndex := Integer(ComboBox1.Items.IndexOf('Season 6 (EX603)'));
+      end
+      else begin
+          ComboBox1.ItemIndex := Integer(ComboBox1.Items.IndexOf('Season 8 (EX803)'));
+      end;
+
+        BorderStyle := bsNone;
+end;
+
+end.

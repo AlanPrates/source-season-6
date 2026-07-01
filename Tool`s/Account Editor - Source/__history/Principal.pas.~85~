@@ -1,0 +1,200 @@
+unit Principal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
+  Vcl.ComCtrls, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnCtrls,
+  Vcl.ActnMenus, Vcl.PlatformDefaultStyleActnCtrls, Vcl.Menus, Vcl.ActnPopup,
+  Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    MainMenu1: TMainMenu;
+    teste1: TMenuItem;
+    Configuraes1: TMenuItem;
+    Sobre1: TMenuItem;
+    EditarConta1: TMenuItem;
+    Label8: TLabel;
+    cbLanguage: TComboBox;
+    GroupBox1: TGroupBox;
+    Ferramentas1: TMenuItem;
+
+    procedure FormCreate(Sender: TObject);
+    procedure cbLanguageChange(Sender: TObject);
+    procedure Sobre1Click(Sender: TObject);
+    procedure Configuraes1Click(Sender: TObject);
+    procedure teste1Click(Sender: TObject);
+    procedure EditarConta1Click(Sender: TObject);
+    procedure Ferramentas1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+  protected
+    procedure WMCommand(var Message: TWMCommand); message WM_COMMAND;
+  end;
+
+var
+  Form1 : TForm1;
+
+
+implementation
+uses EditarConta,EditarContaDone, CriarConta, Config, Language, LoadINI, Sobre,
+  Tools;
+
+{$R *.dfm}
+
+
+
+procedure TForm1.Configuraes1Click(Sender: TObject);
+begin
+
+ Form3.Show;
+
+end;
+
+procedure TForm1.cbLanguageChange(Sender: TObject);
+begin
+  if cbLanguage.Text = 'English' then begin
+      Load('EN');
+  end
+  else
+  if cbLanguage.Text = 'Português' then begin
+      Load('PT');
+  end;
+    Form1.Caption           := labeltext01;
+    Form6.GroupBox2.Caption := labeltext02;
+    //GroupBox1.Caption := labeltext03;
+    Form6.Label5.Caption    := labeltext09;
+    Form6.Label1.Caption    := labeltext04;
+    Form6.Label7.Caption    := labeltext05;
+    Form6.Label6.Caption    := labeltext06;
+    Form6.Label2.Caption    := labeltext27;
+    Form6.Label3.Caption    := labeltext24;
+    Form6.Label4.Caption    := labeltext25;
+    Form6.Label8.Caption    := labeltext26;
+    Form6.Button1.Caption   := labeltext07;
+    Form6.Button2.Caption   := labeltext28;
+    Form3.Label2.Caption    := labeltext10;
+    Form3.Label3.Caption    := labeltext08;
+    Form3.Label4.Caption    := labeltext09;
+    Form3.Label6.Caption    := labeltext29;
+
+    Form1.Label8.Caption    := labeltext11;
+    Form1.teste1.Caption    := labeltext16;
+    Form1.EditarConta1.Caption    := labeltext17;
+    Form1.Configuraes1.Caption    := labeltext18;
+    Form1.Ferramentas1.Caption    := labeltext31;
+    Form1.Sobre1.Caption    := labeltext19;
+    Form2.GroupBox1.Caption    := labeltext15;
+    Form3.GroupBox1.Caption    := labeltext14;
+    Form4.GroupBox1.Caption    := labeltext12;
+    Form5.GroupBox1.Caption    := labeltext13;
+    Form6.GroupBox2.Caption    := labeltext13;
+    Form7.GroupBox1.Caption    := labeltext30;
+
+    Form5.Label1.Caption    := labeltext04;
+
+    Form4.Button1.Caption  := labeltext20;
+    Form4.Label1.Caption   := labeltext04;
+    Form4.Label2.Caption   := labeltext09;
+    Form4.Label3.Caption   := labeltext24;
+    Form4.Label4.Caption   := labeltext25;
+
+    Form5.Button1.Caption   := labeltext21;
+
+    Form3.Button1.Caption   := labeltext23;
+    Form3.Button2.Caption   := labeltext22;
+
+    Form7.Button1.Caption   := labeltext32;
+    Form7.Button2.Caption   := labeltext33;
+    Form7.Button3.Caption   := labeltext34;
+    Form7.Button4.Caption   := labeltext36;
+    Form7.Button5.Caption   := labeltext35;
+    Form7.Button6.Caption   := labeltext37;
+    Form7.Button7.Caption   := labeltext38;
+    Form7.Button8.Caption   := labeltext39;
+    Form7.Button9.Caption   := labeltext40;
+    Form7.Button14.Caption  := labeltext41;
+    Form7.Button22.Caption  := labeltext42;
+    Form7.Button21.Caption  := labeltext43;
+    Form7.Button16.Caption  := labeltext44;
+    Form7.Button18.Caption  := labeltext45;
+    Form7.Button23.Caption  := labeltext46;
+    Form7.Button15.Caption  := labeltext47;
+    Form7.Button24.Caption  := labeltext48;
+    Form7.Button19.Caption  := labeltext49;
+    Form7.Button13.Caption  := labeltext50;
+    Form7.Button11.Caption  := labeltext51;
+    Form7.Button12.Caption  := labeltext52;
+    Form7.Button10.Caption  := labeltext53;
+    Form7.Button20.Caption  := labeltext54;
+
+
+end;
+
+procedure TForm1.EditarConta1Click(Sender: TObject);
+begin
+    Form5.Show;
+end;
+
+procedure TForm1.Ferramentas1Click(Sender: TObject);
+begin
+      if INI_versao = 1 then begin
+             Form7.Button15.Visible := False;
+             Form7.Button10.Visible := True;
+             Form7.Button20.Visible := False;
+             Form7.Button19.Visible := False;
+             Form7.Button24.Visible := True;
+      end;
+      if INI_versao = 2 then begin
+             Form7.Button15.Visible := True;
+             Form7.Button10.Visible := False;
+             Form7.Button20.Visible := True;
+             Form7.Button19.Visible := False;
+             Form7.Button24.Visible := False;
+      end;
+      if INI_versao = 3 then begin
+             Form7.Button15.Visible := True;
+             Form7.Button10.Visible := False;
+             Form7.Button20.Visible := True;
+             Form7.Button19.Visible := True;
+             Form7.Button24.Visible := False;
+      end;
+
+   Form7.Show;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+
+  INILoad();
+  Load('PT');
+  INICreate(ExtractFilePath(Application.ExeName) + 'Config.ini', 'Config');
+end;
+
+procedure TForm1.Sobre1Click(Sender: TObject);
+begin
+    Form2.Show;
+end;
+
+procedure TForm1.teste1Click(Sender: TObject);
+begin
+    Form4.Show;
+end;
+
+procedure TForm1.WMCommand(var Message: TWMCommand);
+begin
+  case Message.ItemID of
+    SC_CLOSE, SC_MINIMIZE, SC_RESTORE, SC_MAXIMIZE:
+      begin
+        Message.Result := 0;
+        Exit;
+      end;
+  else
+    inherited;
+  end;
+end;
+
+end.

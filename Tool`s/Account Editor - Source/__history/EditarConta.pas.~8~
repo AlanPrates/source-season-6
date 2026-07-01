@@ -1,0 +1,84 @@
+unit EditarConta;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.StdCtrls, FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.MSSQL,
+  FireDAC.Phys.MSSQLDef, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
+  FireDAC.Comp.DataSet, FireDAC.VCLUI.Wait, FireDAC.Comp.UI,inifiles;
+
+type
+  TForm5 = class(TForm)
+    GroupBox1: TGroupBox;
+    Edit1: TEdit;
+    Button1: TButton;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form5: TForm5;
+
+implementation
+
+uses Config,EditarContaDone,Language;
+{$R *.dfm}
+
+procedure TForm5.Button1Click(Sender: TObject);
+var
+  Cn    : TFDConnection;
+  Query : TFDQuery;
+  str   : String;
+  rr    : TArray<string>;
+begin
+  Cn                          := TFDConnection.Create(nil);
+  Cn.ConnectionName           := 'ConexaoMSSQL';
+  Cn.DriverName               := 'MSSQL';
+  Cn.Params.DriverID          := 'MSSQL';
+  Cn.Params.Database          := Form3.Edit5.Text;
+  Cn.Params.Values['Server']  := Form3.Edit2.Text +','+ Form3.Edit1.Text;;
+  Cn.Params.UserName          := Form3.Edit3.Text;
+  Cn.Params.Password          := Form3.Edit4.Text;
+  Cn.LoginPrompt              := False;
+
+  try
+    Cn.Connected := True;
+
+    Query := TFDQuery.Create(cn);
+    try
+      Query.Connection                          := cn;
+      Query.SQL.Text                            := 'SELECT top 1 memb___id FROM MEMB_INFO WHERE memb___id = :conta';
+      Query.Params.ParamByName('conta').Value   := Edit1.Text;
+      Query.Active                              := True;
+
+      str := Query.Fields[1].AsString;
+      rr  := str.split([' ']);
+
+        if Query.RowsCount > 0 then begin
+            MessageBox(Handle, text10, text03, MB_ICONINFORMATION or MB_OK);
+        end
+        else begin
+            MessageBox(Handle, text10, text04, MB_ICONERROR or MB_OK);
+        end;
+
+      //Form6.DateTimePicker1.Date := StrToDate(rr[0]);
+    finally
+      Query.Free;
+    end;
+  except
+    on E: Exception do
+
+  end;
+
+  Cn.Connected := False;
+  Cn.Free;
+
+end;
+
+end.
