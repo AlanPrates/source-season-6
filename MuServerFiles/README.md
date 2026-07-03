@@ -1,16 +1,16 @@
 # MuServerFiles
 
-Organized MuServer runtime configuration snapshot.
+Snapshot organizado das configuracoes de runtime do MuServer.
 
-Included:
-- Data configuration and gameplay tables
-- GameServer and GameServerCS data configuration
-- ConnectServer, DataServer, JoinServer, and MHPServer text/config files
-- Portuguese client text sources used for BMD generation
+Incluido:
+- Configuracoes da pasta Data e tabelas de gameplay
+- Configuracoes de dados do GameServer e GameServerCS
+- Arquivos de texto/configuracao do ConnectServer, DataServer, JoinServer e MHPServer
+- Fontes de texto em portugues do cliente usadas para gerar BMD
 
-Excluded:
+Excluido:
 - Logs
-- Runtime executables and DLLs
-- Backup/cache files
-- Large client binary assets
-- Nested source repository files
+- Executaveis e DLLs de runtime
+- Arquivos de backup/cache
+- Assets binarios grandes do cliente
+- Arquivos de repositorios source aninhados
