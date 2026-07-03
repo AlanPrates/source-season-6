@@ -1,0 +1,31 @@
+//=================================================================================
+//= 				                           =           Custom Coord           =
+//=================================================================================
+//= [MAP] - Número do mapa (MapManager.txt).   =      GABARITO DE COORDENADAS     =
+//= [X]   - Coordenada X inicial.              ====================================
+//= [Y]   - Coordenada Y inicial.              =           __________tX+          =
+//= [TX]  - Coordenada X Final.                =          |          | tY         =
+//= [TY]  - Coordenada Y Final.                =          |          |            =
+//= [VIPLEVEL] - Level de Vip para acesso.     =          |          |            =
+//= [GENS]                                     =        X+|__________|            =
+//= 0 - Todos tem acesso\Desativar.            =         Y                        =
+//= 1 - Bloqueio para Vanert.                  ====================================
+//= 2 - Bloqueio para Duprian.                                                    =
+//= [GUILDNAME] - Nome da guild, use "SEMGUILDA" para DESATIVAR.                  =
+//= [MaxLevel] - Level Maximo para acessar a zona.                            =
+//= * O sistema consiste em níveis de acesso para entrar em certas coordenadas.   =
+//              X + TX = LINHA HORIZONTAL DA ESQUERDA [X] PARA DIREITA [TX]       =
+//              Y + TY = LINHA VERTIAL DE BAIXO [Y] PRA CIMA [TY]                 =
+//=================================================================================
+//= 				                           =           Custom Coord           =
+//=================================================================================
+
+//=================================================================================================================================================================                                                                                                      
+//Map		X		Y		TX		TY		VipLevel    MaxLevel 		GensType     GuildName            	Gate     InfoMessage	Comentário
+//==================================================================================================================================================================
+0		    145		141		157		148	    0		    400             2		     "SEMGUILDA"	        17       1592       	// Bau de Cima - Lorencia
+0		    138		107		153		116	    0		    400           	1		     "SEMGUILDA"	        17       1593       	// Bau de Baixo - Lorencia
+0		    139		123		145		132	    0		    400           	0		     "SEMGUILDA"	        17       1594       	// Ring - Lorencia
+//0		    201		219		243		246	    0		    400           	0		     "HAHA"	 		        17       1591       	// Inicio Barco - Lorencia 
+//0		    184		165		211		210	    0		    400           	0		     "HAHA"	 		        17       1591       	// Inicio2 Barco - Lorencia 
+end                                                                                                                                

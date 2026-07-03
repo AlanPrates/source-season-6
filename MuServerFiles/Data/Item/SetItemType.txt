@@ -1,0 +1,170 @@
+//Sec   Type    StType  OptIn1  OptIn2	Name
+// sword
+0	2	0	21	0	//arma ok
+0	14	0	11	0	//arma ok
+0	32	0	37	38
+0	33	0	45	0	//Set Horus
+0	17	0	0	46	//Set Bragi
+0	31	0	0	49	//Set Try
+0	34	0	0	52	//Set Magni
+//-- mace
+2	1	0	1	0	//arma ok
+2	11	0	0	50	//Set Surt
+//-- arco
+4	5	1	29	0	//arma ok
+4	9	1	23	0	//arma ok
+4	17	1	0	48	//Set Frigg
+//-- statf
+5	0	2	13	0	//arma ok
+5	8	2	40	0
+5	9	2	0	47 	//Set Alvis
+5	18	2	0	51	//Set Elune
+//-- escudo
+6	0	3	0	2	//shield ok
+6	6	3	17	0	//shield
+6	9	3	5	0	//shield ok
+6	12	3	39	0	//
+//-- Helm
+7	0	3	0	4	//helm ok
+7	1	3	11	12	//helm ok
+7	2	3	13	14	//helm ok
+7	3	3	19	20	//helm ok
+7	4	3	0	16	//helm ok
+7	5	3	1	2	//helm ok
+7	6	3	5	6	//helm ok
+7	7	3	17	0	//helm ok
+7	8	3	0	8	//helm ok
+7	9	3	0	10	//helm ok
+7	10	3	21	22	//helm ok
+7	11	3	23	0	//helm ok
+7	12	3	25	0	//helm ok
+7	13	3	0	28	//helm ok
+7	14	3	0	30	//helm ok
+7	26	3	33	0	//helm ok
+7	40	3	35	36	//helm ok
+7	59	3	37	0	//
+7	36	3	41	0	//
+7	41	3	43	0	//Hapy Set
+7	17	3	0	46	//Set Bragi
+7	38	3	0	50	//Set Surt
+7	61	3	0	52	//Set Magni
+//-- Armor
+8	0	3	3	0	//armor ok
+8	1	3	0	12	//armor ok
+8	2	3	13	0	//armor ok
+8	3	3	19	20	//armor ok
+8	4	3	15	16	//armor ok
+8	5	3	1	0	//armor ok
+8	6	3	5	6	//armor ok
+8	7	3	17	18	//armor ok
+8	8	3	7	0	//armor ok
+8	9	3	9	10	//armor ok
+8	10	3	0	22	//armor ok
+8	11	3	23	0	//armor ok
+8	12	3	25	0	//armor ok
+8	13	3	27	0	//armor ok
+8	14	3	29	30	//armor ok
+8	15	3	31	32	//armor ok
+8	26	3	33	0	//armor ok
+8	40	3	0	36	//armor ok
+8	59	3	37	38	//
+8	17	3	0	46	//Set Bragi
+8	18	3	0	47 	//Set Alvis
+8	19	3	0	48	//Set Frigg
+8	38	3	0	50	//Set Surt
+8	42	3	0	51	//Set Elune
+8	61	3	0	52	//Set Magni
+//-- Pants
+9	0	3	3	4	//pants ok
+9	1	3	0	12	//pants ok
+9	2	3	13	14	//pants ok
+9	3	3	0	20	//pants ok
+9	4	3	15	0	//pants ok
+9	5	3	1	2	//pants ok
+9	6	3	5	6	//pants ok
+9	7	3	17	18	//pants ok
+9	8	3	7	8	//pants ok
+9	9	3	0	10	//pants ok
+9	10	3	21	22	//pants ok
+9	11	3	23	24	//pants ok
+9	12	3	25	26	//pants ok
+9	13	3	27	28	//pants ok
+9	14	3	0	30	//pants ok
+9	15	3	31	32	//pants ok
+9	26	3	33	34	//pants ok
+9	40	3	35	0	//pants ok
+9	59	3	37	38	//
+9	16	3	39	0	//
+9	35	3	40	0	//
+9	36	3	41	0	//
+9	17	3	0	46	//Set Bragi
+9	19	3	0	48	//Set Frigg
+9	20	3	0	49	//Set Try
+9	42	3	0	51	//Set Elune
+//-- Gloves
+10	0	3	0	4	//gloves ok
+10	1	3	11	0	//gloves ok
+10	2	3	13	0	//gloves ok
+10	3	3	19	0	//gloves ok
+10	4	3	0	16	//gloves ok
+10	5	3	1	0	//gloves ok
+10	6	3	0	6	//gloves ok
+10	7	3	17	0	//gloves ok
+10	8	3	7	0	//gloves ok
+10	9	3	9	0	//gloves ok
+10	10	3	21	0	//gloves ok
+10	11	3	23	24	//gloves ok
+10	12	3	25	0	//gloves ok
+10	13	3	27	0	//gloves ok
+10	14	3	29	0	//gloves ok
+10	15	3	0	32	//gloves ok
+10	26	3	0	34	//gloves ok
+10	40	3	35	36	//gloves ok
+10	27	3	44	0	//Set Khons
+10	18	3	0	47 	//Set Alvis
+10	20	3	0	49	//Set Try
+10	38	3	0	50	//Set Surt
+10	42	3	0	51	//Set Elune
+//-- Boots
+11	0	3	3	0	//boots ok
+11	1	3	11	0	//boots ok
+11	2	3	0	14	//boots ok
+11	3	3	0	20	//boots ok
+11	4	3	15	16	//boots ok
+11	5	3	1	2	//boots ok
+11	6	3	0	6	//boots ok
+11	7	3	17	18	//boots ok
+11	8	3	7	0	//boots ok
+11	9	3	9	0	//boots ok
+11	10	3	21	22	//boots ok
+11	11	3	0	24	//boots ok
+11	12	3	25	26	//boots ok
+11	13	3	0	28	//boots ok
+11	14	3	29	30	//boots ok
+11	15	3	31	0	//boots ok
+11	26	3	0	34	//boots ok
+11	40	3	0	36	//boots ok
+11	59	3	0	38	//
+11	37	3	42	0	//apis set
+11	41	3	43	0	//Hapy Set
+11	27	3	44	0	//Set Khons
+11	17	3	0	46	//Set Bragi
+11	18	3	0	47 	//Set Alvis
+11	19	3	0	48	//Set Frigg
+11	20	3	0	49	//Set Try
+11	38	3	0	50	//Set Surt
+11	61	3	0	52	//Set Magni
+//-- Ring and Pendals
+13	8	1	1	51	//ring ok
+13	9	1	9	33	//ring poison
+13	12	2	5	49	//pendant ok
+13	13	0	7	42	//pendant fire
+13	21	2	19	32	//ring ok
+13	22	0	21	12	//ring ok
+13	23	1	9	52	//ring ok
+13	24	2	13	35	//ring ok
+13	25	0	13	34	//pendant ok
+13	26	1	15	48	//pendant ok
+13	27	3	31	47	//pendant ok
+13	28	1	29	45	//pendant ok
+end

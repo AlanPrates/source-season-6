@@ -1,0 +1,11 @@
+//Message						Type	Count	Opacity	Delay	Red	 Green	Blue	Speed	RepeatTime
+"Mensaje global amarillo"		0	    1	    0	    0	    0	 0	     0	    0	      60
+"Mensaje global azul"			1	    1	    0	    0	    0	 0	     0	    0	      60
+"Mensaje global verde"			2	    1	    0	    0	    0	 0	     0	    0	      60
+"Slider tipo 10"				10	    1	    255	    0	    255	 0	     0	    5	      60
+"Slider tipo 11"				11	    1	    255	    0	    0	 255	 0	    5	      60
+"Slider tipo 12"				12	    1	    255	    0	    0	 0	     255	5	      60
+"Slider tipo 13"				13	    1	    255	    0	    255	 255	 0	    5	      60
+"Slider tipo 14"				14	    1	    255	    0	    255	 0	     255	5	      60
+"Slider tipo 15"				15	    1	    255	    0	    0	 255	 255	5	      60
+end
