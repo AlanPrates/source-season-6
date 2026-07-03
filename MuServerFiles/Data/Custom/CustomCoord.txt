@@ -23,9 +23,9 @@
 //=================================================================================================================================================================                                                                                                      
 //Map		X		Y		TX		TY		VipLevel    MaxLevel 		GensType     GuildName            	Gate     InfoMessage	Comentário
 //==================================================================================================================================================================
-0		    145		141		157		148	    0		    400             2		     "SEMGUILDA"	        17       1592       	// Bau de Cima - Lorencia
-0		    138		107		153		116	    0		    400           	1		     "SEMGUILDA"	        17       1593       	// Bau de Baixo - Lorencia
-0		    139		123		145		132	    0		    400           	0		     "SEMGUILDA"	        17       1594       	// Ring - Lorencia
+//0		    145		141		157		148	    0		    400             2		     "SEMGUILDA"	        17       1592       	// Bau de Cima - Lorencia
+//0		    138		107		153		116	    0		    400           	1		     "SEMGUILDA"	        17       1593       	// Bau de Baixo - Lorencia
+//0		    139		123		145		132	    0		    400           	0		     "SEMGUILDA"	        17       1594       	// Ring - Lorencia
 //0		    201		219		243		246	    0		    400           	0		     "HAHA"	 		        17       1591       	// Inicio Barco - Lorencia 
 //0		    184		165		211		210	    0		    400           	0		     "HAHA"	 		        17       1591       	// Inicio2 Barco - Lorencia 
 end                                                                                                                                
